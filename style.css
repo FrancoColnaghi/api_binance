@@ -9,24 +9,109 @@ body{
     flex-direction: column;
     align-items: center;
     background-color: rgb(17, 16, 48);
-}
-.container-card{
-    color: white;
-    width: 700px;
+    .container-card{
+        color: white;
+        width: 900px;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .card{
+            background-color: black;
+            margin: 15px;
+            width: 900px;
+            height: 150px;
+            border: 1px solid rgb(255, 255, 255);
+            
+            display: flex;
+            justify-content: space-between;
+            .info{
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                justify-content: center;
+                align-items: center;
+                .symbol{
+                    margin: 10px 0;
+                    font-size: 20px;
+                }
+                .price{
+                    margin: 10px 0;
+                    font-size: 25px;
+                }
+            }
+            .time{
+                display: flex;
+                flex-direction: column;
+                border: 1px solid white;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+                flex: 1;
+                .title-time{
+                    text-align: center;
+                    border-bottom: 1px solid white;
+                }
+                .info-time{
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    .lines{
+                        display: flex;
+                        flex-direction: column;
+                        flex: 1;
+                        .line{
+                            padding: 0 10px;
+                            display: flex;
+                            flex-wrap: nowrap;
+                            justify-content: space-between;
+                            align-items: center;
+                            flex: 1;
+                            border-bottom: 1px solid rgb(94, 94, 94);
+                        }
+                    }
+                    .monitor{
+                        width: 30px;
+                        display: flex;
+                        flex-direction: column;
+                        .mon{
+                            flex: 1;
+                            border: 1px solid rgb(75, 75, 75);
+                        }
+                        .mon1{
+                            background-color: red;
+                            opacity: 0.1;
+                        }
+                        .mon2{
+                            background-color: orange;
+                            opacity: 0.1;
+                        }
+                        .mon3{
+                            background-color: yellow;
+                            opacity: 0.1;
+                        }
+                        .mon4{
+                            background-color: green;
+                            opacity: 0.1;
+                        }
+                        .pintado{
+                            opacity: 1;
+                        }
+                    }
+                }
+                .resume-time{
+                    display: flex;
+                    height: 40px;
+                    font-size: 12px;
+                    .ampl-boll{
+                        flex: 1;
+                        text-align: center;
+                    }
+                    .dist-sma{
+                        flex: 1;
+                        text-align: center;
 
-.card{
-    background-color: black;
-    padding: 10px;
-    margin: 15px;
-    width: 700px;
-    height: 100px;
-    border: 1px solid rgb(255, 255, 255);
-
-    display: flex;
-    justify-content: space-between;
+                    }
+                }
+            }
+        }
+    }
 }
