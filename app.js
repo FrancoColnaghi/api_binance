@@ -99,7 +99,7 @@ var mapeoIntervalos = intervals.map(interval =>{
             //banda superior
             let numFormat = Math.round(data.bandaSuperior*10000)/10000
             numFormat = numFormat.toPrecision(decimals)
-            var newTextprice = document.createTextNode(`${numFormat}`)
+            let newTextprice = document.createTextNode(`${numFormat}`)
             document.getElementById(`s${index+1}-${interval}-sup`).appendChild(newTextprice)
             prices.push(numFormat)
             
@@ -120,13 +120,14 @@ var mapeoIntervalos = intervals.map(interval =>{
             
             
             Pintar(index,interval,prices);
+
         })
         .catch(error => console.error(error));
     })
 })
 
 const Pintar = (index, interval, prices) => {
-    console.log(`index: ${index} - precio: ${priceSymbol[index]}, intervalo: ${interval}, precios: ${prices[0]}, ${prices[1]}, ${prices[2]}`)
+    //console.log(`index: ${index} - precio: ${priceSymbol[index]}, intervalo: ${interval}, precios: ${prices[0]}, ${prices[1]}, ${prices[2]}`)
 
     if (priceSymbol[index] > prices[0]) {
         document.getElementById(`s${index+1}-${interval}-m1`).classList.add("pintado")
@@ -142,6 +143,19 @@ const Pintar = (index, interval, prices) => {
             }
         }
     }
+
+    // Amplitud de bandas y Distancia a SMA
+    let amplitudBLL = ((prices[0]-prices[2])/prices[1])*100
+    amplitudBLL = amplitudBLL.toPrecision(3)
+    let newTextprice = document.createTextNode(`${amplitudBLL} %`)
+    document.getElementById(`s${index+1}-${interval}-amp`).appendChild(newTextprice)
+
+    let lastPrice = document.getElementById(`price-${index+1}`).innerText
+    lastPrice = parseFloat(lastPrice)
+    let distanciaSMA = ((lastPrice-prices[1])/prices[1])*100
+    distanciaSMA = distanciaSMA.toPrecision(3)
+    newTextprice = document.createTextNode(`${distanciaSMA} %`)
+    document.getElementById(`s${index+1}-${interval}-dis`).appendChild(newTextprice)    
 };
 
 console.log(priceSymbol)
